@@ -1,0 +1,20 @@
+# Netlify Configuration for Cyber Pulse // Hand Shooter Gun
+
+[build]
+  # Directory containing the deploy-ready website files
+  publish = "frontend"
+
+# SPA fallback routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security & Camera Permission Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Ensure camera permissions are granted for MediaPipe computer vision
+    Permissions-Policy = "camera=(self)"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"

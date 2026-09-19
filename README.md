@@ -2,24 +2,26 @@
 
 A futuristic, browser-based hand gesture shooter game powered by **MediaPipe Computer Vision** and **Web Audio API**. 
 
-Aim your index finger like a gun, cock your thumb, and **click your thumb onto your index finger** to fire intense lasers, plasma bolts, fireballs, and lightning arcs with real-time particle physics, recoil shockwaves, and arcade target practice!
+Aim your index finger like a gun, cock your thumb, and **shake or flick your thumb downward or upward** to fire intense lasers, plasma bolts, fireballs, and lightning arcs with real-time particle physics, recoil shockwaves, and arcade target practice!
 
 ---
 
-## 🚀 Host Directly on Render
+## 🚀 Host on Netlify (Fast & Free)
 
-Deploy your website online for free on **Render**:
+Deploy your website online for free on **Netlify**:
 
-👉 **[Open Render Dashboard (Upload / Host Files)](https://dashboard.render.com/)**
+👉 **[Open Netlify Drop (Instant Drag & Drop)](https://app.netlify.com/drop)**
 
-Official Render Website: [https://render.com](https://render.com)
+👉 **[Open Netlify Dashboard](https://app.netlify.com/)**
+
+Official Netlify Website: [https://www.netlify.com](https://www.netlify.com)
 
 ---
 
 ## 🌟 Features
 
 - 🖐️ **Zero-Hardware Hand Tracking**: Detects natural finger gun gestures with 21 3D hand landmarks via MediaPipe.
-- 💥 **Thumb-to-Index Trigger Pull**: Fires automatically when your thumb taps/clicks against your index finger.
+- ⚡ **Thumb Shake / Flick Firing**: Fires automatically when you shake or flick your thumb downward or upward (no finger touching needed).
 - 🎨 **Awesome Firing Animations**:
   - Radiant muzzle flash & expanding shockwave rings
   - High-velocity glowing projectiles with dynamic motion trails
@@ -32,7 +34,7 @@ Official Render Website: [https://render.com](https://render.com)
   2. **Plasma Bolt**: Pulsating energy orb with devastating shockwave.
   3. **Inferno Blast**: Burning flame burst with blazing embers.
   4. **Volt Discharge**: High-speed electric arc discharge.
-- ☁️ **Render-Ready Architecture**: Clean `frontend/` and `backend/` separation with preconfigured `render.yaml`.
+- ☁️ **Netlify-Ready Architecture**: Configured with `netlify.toml` for instant static publishing and explicit camera permission headers.
 
 ---
 
@@ -40,8 +42,8 @@ Official Render Website: [https://render.com](https://render.com)
 
 1. Allow camera permissions when prompted.
 2. **Point Finger Gun**: Extend your index finger forward while curling your middle, ring, and pinky fingers.
-3. **Cock Thumb**: Raise your thumb upwards (the HUD hammer meter will indicate `COCKED / READY`).
-4. **Click Thumb to Fire**: Snap or tap your thumb down onto your index finger (trigger pull). An intense blast will shoot directly from your fingertip!
+3. **Aim**: Move your index finger to target holographic drones on screen.
+4. **Shake Thumb to Fire**: Flick or shake your thumb downward or upward to blast projectiles! Rapid shaking enables semi-auto fire.
 5. **Switch Weapons**: Press keys `1`, `2`, `3`, `4` or click the weapon deck at the bottom.
 
 ---
@@ -50,44 +52,44 @@ Official Render Website: [https://render.com](https://render.com)
 
 ```
 shooter gun/
-├── backend/
-│   ├── package.json      # Express dependencies & scripts
-│   └── server.js         # Production server with static file hosting & health API
 ├── frontend/
 │   ├── index.html        # Futuristic HUD, camera viewport, weapon dock, modal guides
 │   ├── style.css         # Cyberpunk design system, animations, glassmorphism
 │   └── app.js           # MediaPipe CV, gesture trigger engine, FX loop & audio synth
-├── render.yaml           # Render Blueprint for 1-click automated deployment
-├── package.json          # Root package descriptor for Render build process
+├── backend/
+│   ├── package.json      # Express server dependencies
+│   └── server.js         # Optional local development server
+├── netlify.toml          # Netlify configuration (publish directory & security headers)
+├── package.json          # Project descriptor
 ├── .gitignore            # Git exclusions (node_modules, logs)
-└── README.md             # Guide & direct Render link
+└── README.md             # Guide & deployment documentation
 ```
 
 ---
 
-## 🌐 How to Host on Render (Step-by-Step)
+## 🌐 How to Deploy on Netlify (Step-by-Step)
 
-### Method 1: Connect via GitHub (Recommended)
+### Method 1: Instant Drag & Drop (10 Seconds, No Git Needed!)
 
-1. **Push your code to GitHub**:
+1. Open **[Netlify Drop](https://app.netlify.com/drop)** in your browser.
+2. Drag and drop the **`frontend`** folder from your project directly onto the browser page.
+3. Done! Netlify immediately deploys your website on a free, live HTTPS URL (e.g., `https://cyber-pulse.netlify.app`).
+
+---
+
+### Method 2: Connect via GitHub (Automatic Updates)
+
+1. Push your repository to GitHub:
    ```bash
-   git init
    git add .
-   git commit -m "Initial commit - Hand Shooter Gun"
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-   git push -u origin main
+   git commit -m "Configure Netlify deployment"
+   git push origin main
    ```
-2. Go to **[Render Dashboard](https://dashboard.render.com/)**.
-3. Click **New +** in the top right and select **Web Service** (or **Blueprint** to use `render.yaml` automatically).
-4. Select your GitHub repository.
-5. Configure the service:
-   - **Name**: `hand-shooter-gun`
-   - **Environment**: `Node`
-   - **Build Command**: `npm --prefix backend install`
-   - **Start Command**: `node backend/server.js`
-   - **Plan**: `Free`
-6. Click **Deploy Web Service**!
-7. Your game will be live on a free `.onrender.com` URL in 1–2 minutes!
+2. Go to **[Netlify Dashboard](https://app.netlify.com/)** and click **Add new site** > **Import an existing project**.
+3. Select **GitHub** and choose your `lgunshooter` repository.
+4. Netlify will automatically detect `netlify.toml`:
+   - **Publish directory**: `frontend`
+5. Click **Deploy Site**!
 
 ---
 
@@ -95,26 +97,13 @@ shooter gun/
 
 To run the application locally on your computer:
 
-1. **Install dependencies**:
-   ```bash
-   npm --prefix backend install
-   ```
-
-2. **Start the server**:
+1. **Start the local server**:
    ```bash
    npm start
    ```
-   *(or `cd backend && npm start`)*
+   *(or open `frontend/index.html` directly in your browser)*
 
-3. **Open in your browser**:
+2. **Open in your browser**:
    ```
    http://localhost:3000
    ```
-
----
-
-## 🩺 API Endpoints
-
-- `GET /api/health` - Server health check & uptime monitor for Render.
-- `GET /api/scores` - Top scores list.
-- `POST /api/scores` - Record a new score.
