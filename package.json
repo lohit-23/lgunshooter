@@ -1,0 +1,17 @@
+{
+  "name": "shooter-gun-backend",
+  "version": "1.0.0",
+  "description": "Backend server for Hand Shooter Gun Web Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["mediapipe", "hand-tracking", "shooter-gun", "render"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
